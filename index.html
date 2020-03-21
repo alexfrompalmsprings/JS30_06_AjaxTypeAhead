@@ -19,7 +19,18 @@
 //populations in 2010-2013
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+//empty array cities to pass the cities we are looking for
 let cities = [];
+
+//get all the data using fetch
+fetch(endpoint)
+  // data comes unraw format
+  .then(rawData => rawData.json()
+  //data gets converted into a nicer version... thousand of arrays
+  .then(data => console.log(data))
+);
+
+
 
 
 </script>
