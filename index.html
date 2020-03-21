@@ -25,10 +25,10 @@ let cities = [];
 //get all the data using fetch
 fetch(endpoint)
   // data comes unraw format
-  .then(rawData => rawData.json()
+  .then(rawData => rawData.json())
   //data gets converted into a nicer version... thousand of arrays
-  .then(data => console.log(data))
-);
+  .then(data => cities.push(...data))
+
 
 
 
