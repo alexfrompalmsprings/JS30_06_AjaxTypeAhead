@@ -30,8 +30,9 @@ fetch(endpoint)
   .then(data => cities.push(...data))
 
 
-function cityMatcher(lookUpWord, cities){
-  return cities.filter(place => {
+//looks up the city
+function cityMatcher(lookUpWord, arr){
+  return arr.filter(place => {
     //we need to figure out how to match the city that was searched
 
 
@@ -41,10 +42,13 @@ function cityMatcher(lookUpWord, cities){
     // return the city or the state with the regexExp
     return place.city.match(regex) || place.state.match(regex);
 
-
-
-
   })
+}
+
+//displays the city in the browser
+function displayCityMatcher(){
+  console.log(this.value);
+
 }
 
 
