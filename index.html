@@ -51,9 +51,14 @@ function displayCityMatcher(){
   console.log('results querying from the data', matchCity)
 
   let html = matchCity.map(place => {
+
+    let regex = new RegExp(this.value, 'gi');
+    let cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
+
+
     return `
       <li>
-        <span class"name">${place.city}, ${place.state}</span>
+        <span class"name">${cityName}, ${place.state}</span>
         <span class"population">${place.population}</span>
       </li>
     `
