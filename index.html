@@ -30,6 +30,24 @@ fetch(endpoint)
   .then(data => cities.push(...data))
 
 
+function cityMatcher(lookUpWord, cities){
+  return cities.filter(place => {
+    //we need to figure out how to match the city that was searched
+
+
+    //need to use Regex ----------  global & insensitive
+    let regex = new RegExp(lookUpWord, 'gi')
+
+    // return the city or the state with the regexExp
+    return place.city.match(regex) || place.state.match(regex);
+
+
+
+
+  })
+}
+
+
 
 
 
