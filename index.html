@@ -47,9 +47,24 @@ function cityMatcher(lookUpWord, arr){
 
 //displays the city in the browser
 function displayCityMatcher(){
-  console.log(this.value);
+  let matchCity = cityMatcher(this.value, cities);
+  console.log('results querying from the data', matchCity)
 
+  let html = matchCity.map(place => {
+    return `
+      <li>
+        <span class"name">${place.city}, ${place.state}</span>
+      </li>
+    `
+  })
+  suggestions.innerHTML = html;
 }
+
+let searchInput = document.querySelector('.search');
+let suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayCityMatcher);
+searchInput.addEventListener('keyUp', displayCityMatcher);
 
 
 
