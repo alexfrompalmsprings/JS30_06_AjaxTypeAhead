@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Population 🇺🇸🗺</title>
+  <title> Population 🇺🇸 by Alex</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- <h2>Population Fetcher 🇺🇸</h2> -->
 
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
@@ -45,6 +47,12 @@ function cityMatcher(lookUpWord, arr){
   })
 }
 
+function numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+
 //displays the city in the browser
 function displayCityMatcher(){
   let matchCity = cityMatcher(this.value, cities);
@@ -58,16 +66,18 @@ function displayCityMatcher(){
     let cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
     let stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
 
+    //create the divs in the browser
 
     return `
       <li>
         <span class"name">${cityName}, ${stateName}</span>
-        <span class"population">${place.population}</span>
+        <span class"population">${numberWithCommas(place.population)}</span>
       </li>
     `
   }).join('');
   suggestions.innerHTML = html;
 }
+
 
 let searchInput = document.querySelector('.search');
 let suggestions = document.querySelector('.suggestions');
